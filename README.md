@@ -3,7 +3,7 @@
 - Clone this Repository
 
 ```bash
-git clone https://github.com/Naveen-759/agri-credit.git
+https://github.com/Manoj10211021/agri-credit.git
 ```
 
 - Create `.env` file in root directory
