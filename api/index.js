@@ -40,13 +40,13 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-const corsOptions = {
-  origin: [process.env.FRONTEND_URL, "http://localhost:5173"],
-  methods: "GET , POST , PUT , DELETE , PATCH",
-  credentials: true,
-};
-app.use(cors(corsOptions));
-
+// const corsOptions = {
+//   origin: [process.env.FRONTEND_URL, "http://localhost:5173"],
+//   methods: "GET , POST , PUT , DELETE , PATCH",
+//   credentials: true,
+// };
+// app.use(cors(corsOptions));
+app.use(cors());
 app.listen(3000, () => {
   console.log("Server is running on Port 3000");
 });

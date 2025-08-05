@@ -34,31 +34,14 @@
   },
   {
     "soil_type": "Loamy soil",
-    "crops_grown": [
-      "Wheat",
-      "Rice",
-      "Maize",
-      "Barley",
-      "Sugarcane"
-    ]
+    "crops_grown": ["Wheat", "Rice", "Maize", "Barley", "Sugarcane"]
   },
   {
     "soil_type": "Sandy loam soil",
-    "crops_grown": [
-      "Groundnut",
-      "Maize",
-      "Potato",
-      "Watermelon",
-      "Cucumber"
-    ]
+    "crops_grown": ["Groundnut", "Maize", "Potato", "Watermelon", "Cucumber"]
   },
   {
     "soil_type": "Clayey soil",
-    "crops_grown": [
-      "Paddy",
-      "Wheat",
-      "Sugarcane",
-      "Mustard"
-    ]
+    "crops_grown": ["Paddy", "Wheat", "Sugarcane", "Mustard"]
   }
 ]
