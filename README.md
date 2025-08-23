@@ -1,5 +1,21 @@
 ![Homepage](https://github.com/user-attachments/assets/db6825f3-203e-413f-b77c-18b66ab6aa6e)
 
+## 📖 Documentation
+
+---
+
+For detailed architecture, workflows, and implementation details, please check out the [docs](./docs/) folder:
+
+## ⚙️ Tech Stack
+
+- [Project Overview](./docs/index.md)
+- [Client side state management](./docs/01_client_side_state_management_.md)
+- [User authentication and authorization](./docs/02_user_authentication___authorization_.md)
+- [Agricultural Knowledge Base](./docs/03_agricultural_knowledge_base_.md)
+- [Resource Booking & Management System](./docs/04_resource_booking___management_system_.md)
+- [Backend API (Routes & Controllers)](./docs/05_backend_api__routes___controllers__.md)
+- [Data Models](./docs/06_data_models_.md)
+
 ## Running Locally
 
 - Clone this Repository
