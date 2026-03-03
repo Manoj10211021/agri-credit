@@ -50,7 +50,7 @@ export default function SignIn() {
       } else {
         dispatch(
           signInFailure(
-            response.message || "An error occurred. Please try again."
+            response.message || "ದೋಷ ಸಂಭವಿಸಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
           )
         );
       }
@@ -73,12 +73,12 @@ export default function SignIn() {
               className="font-bold dark:text-white text-4xl text-center"
             >
               <span className="px-2 py-1 bg-gradient-to-r from-green-500 via-green-600 to-green-700 rounded-lg text-white shadow-md">
-                Farmer's
+                ರೈತರ
               </span>
-              Assistant
+              ಸಹಾಯಕ
             </Link>
             <p className="text-sm mt-5 text-center">
-              Empowering Farmers, Growing Futures
+              ರೈತರ ಶಕ್ತೀಕರಣ, ಬೆಳೆಯುವ ಭವಿಷ್ಯ
             </p>
           </div>
           {/* Right */}
@@ -94,16 +94,16 @@ export default function SignIn() {
                                 />
                             </div> */}
               <div>
-                <Label htmlFor="email" value="Your email" />
+                <Label htmlFor="email" value="ನಿಮ್ಮ ಇಮೇಲ್" />
                 <TextInput
                   type="email"
-                  placeholder="john@doe.com"
+                  placeholder="ಉದಾ: abc@xyz.com"
                   id="email"
                   onChange={handleChange}
                 />
               </div>
               <div>
-                <Label htmlFor="password" value="Your password" />
+                <Label htmlFor="password" value="ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್" />
                 <TextInput
                   type="password"
                   placeholder="**********"
@@ -119,15 +119,15 @@ export default function SignIn() {
                 {loading ? (
                   <Spinner className="text-center" size="lg" />
                 ) : (
-                  "Sign In"
+                  "ಸೈನ್ ಇನ್"
                 )}
               </Button>
               <OAuth />
             </form>
             <div className="flex gap-2 text-sm mt-5">
-              <span>Don't Have an Account?</span>
+              <span>ಖಾತೆ ಇಲ್ಲವೇ?</span>
               <Link to="/sign-up" className="text-blue-500">
-                Sign Up
+                ಸೈನ್ ಅಪ್
               </Link>
             </div>
             {errorMessage && (
