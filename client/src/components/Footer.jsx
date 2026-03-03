@@ -17,9 +17,9 @@ export default function FooterCom() {
               className="flex items-center text-lg sm:text-xl font-semibold text-green-800 dark:text-white"
             >
               <span className="px-2 py-1 bg-gradient-to-r from-green-500 via-green-600 to-green-700 rounded-lg text-white">
-                Farmer's
+                ರೈತರ
               </span>
-              Assistant
+              ಸಹಾಯಕ
             </Link>
           </div>
 
@@ -27,7 +27,7 @@ export default function FooterCom() {
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 text-center sm:text-left">
             <div>
               <Footer.Title
-                title="Legal"
+                title="ಕಾನೂನು"
                 className="text-green-800 dark:text-green-300"
               />
               <Footer.LinkGroup col>
@@ -35,13 +35,13 @@ export default function FooterCom() {
                   href="/privacypolicy"
                   className="text-green-600 dark:text-green-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                 >
-                  Privacy Policy
+                  ಗೌಪ್ಯತಾ ನೀತಿ
                 </Footer.Link>
                 <Footer.Link
                   href="/t&c"
                   className="text-green-600 dark:text-green-400 hover:text-teal-500 dark:hover:text-teal-400 transition-colors"
                 >
-                  Terms &amp; Conditions
+                  ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳು
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
@@ -50,12 +50,12 @@ export default function FooterCom() {
         <Footer.Divider className="border-green-300 dark:border-green-600" />
         <div className="flex flex-col sm:flex-row items-center justify-between mt-4">
           <Footer.Copyright
-            by="Farmer's Assistant Team"
+            by="ರೈತರ ಸಹಾಯಕ ತಂಡ"
             year={new Date().getFullYear()}
             className="text-sm text-green-600 dark:text-green-400"
           />
           <div className="text-sm text-green-600 dark:text-green-400">
-            &copy; {new Date().getFullYear()} All rights reserved.
+            &copy; {new Date().getFullYear()} ಎಲ್ಲ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
           </div>
           {/* <div className="flex gap-6 mt-4 sm:mt-0">
             <Footer.Icon

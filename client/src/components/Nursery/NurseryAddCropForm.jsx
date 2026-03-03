@@ -10,7 +10,6 @@ import { app } from "../../firebase";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import NurseryCropList from "./NurseryCropList";
-import Nurserylist from "./Nurserylist";
 
 const AddCropForm = ({ nurseryProp, crop }) => {
   const [nurseries, setNurseries] = useState([]);

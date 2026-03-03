@@ -9,17 +9,20 @@ import ThemeProvider from "./components/ThemeProvider.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GlobalContext from "./context/GlobalState.jsx";
+import { LanguageProvider } from "./context/LanguageContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <GlobalContext>
-          <ThemeProvider>
-            <App />
-            <ToastContainer />
-          </ThemeProvider>
-        </GlobalContext>
+        <LanguageProvider>
+          <GlobalContext>
+            <ThemeProvider>
+              <App />
+              <ToastContainer />
+            </ThemeProvider>
+          </GlobalContext>
+        </LanguageProvider>
       </PersistGate>
     </Provider>
   </StrictMode>
