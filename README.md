@@ -15,6 +15,7 @@ For detailed architecture, workflows, and implementation details, please check o
 - [Resource Booking & Management System](./docs/04_resource_booking___management_system_.md)
 - [Backend API (Routes & Controllers)](./docs/05_backend_api__routes___controllers__.md)
 - [Data Models](./docs/06_data_models_.md)
+- [Kannada Language Setup](./docs/07_kannada_language_setup.md)
 
 ## Running Locally
 
