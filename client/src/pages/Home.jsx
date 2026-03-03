@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
+import { useLanguage } from "../context/LanguageContext";
 // import imageURL from "../assets/bgimg.jpg";
 import imageURL from "../assets/bg2img.webp";
 
 const Home = () => {
   const user = useSelector((state) => state.user.currentUser);
   const [email, setEmail] = useState(user?.email);
+  const { t, language } = useLanguage();
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
@@ -26,14 +28,14 @@ const Home = () => {
         }),
       });
       if (response.ok) {
-        alert("ಚಂದಾದಾರರಾದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು!");
+        alert(t("home.subscribeSuccess"));
         setEmail("");
       } else {
-        throw new Error("ಇಮೇಲ್ ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ");
+        throw new Error(t("home.subscribeFail"));
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("ಇಮೇಲ್ ಕಳುಹಿಸಲು ವಿಫಲವಾಗಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.");
+      alert(t("home.subscribeFail"));
     }
   };
 
@@ -68,8 +70,8 @@ const Home = () => {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <span className="opacity-100">
-                ಸ್ವಾಗತ <br />
-                ರೈತರ ಸಹಾಯಕ
+                {t("home.welcome")} <br />
+                {t("home.heroTitle")}
               </span>
             </motion.h1>
 
@@ -80,17 +82,27 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
             >
-              Farmer's Assistant:
+              {t("brand.prefix")} {t("brand.name")}:
               <br />
               <span className="inline-block">
                 <Typewriter
-                  words={[
-                    "ರೈತರಿಗೆ ಶಕ್ತಿ, ಬೆಳೆಯುವ ಭವಿಷ್ಯ",
-                    "ಕೃಷಿಗಾಗಿ ಚತುರ ಪರಿಹಾರಗಳು",
-                    "ನವೀನ ಕೃಷಿ, ಉತ್ತಮ ಉತ್ಪಾದನೆ",
-                    "ಶಾಶ್ವತ ಕೃಷಿ ಈಗ ಸುಲಭ",
-                    "ನಿಮ್ಮ ಡಿಜಿಟಲ್ ಕೃಷಿ ಜೊತೆಯಾಳಿ",
-                  ]}
+                  words={
+                    language === "kn"
+                      ? [
+                          "ರೈತರಿಗೆ ಶಕ್ತಿ, ಬೆಳೆಯುವ ಭವಿಷ್ಯ",
+                          "ಕೃಷಿಗಾಗಿ ಚತುರ ಪರಿಹಾರಗಳು",
+                          "ನವೀನ ಕೃಷಿ, ಉತ್ತಮ ಉತ್ಪಾದನೆ",
+                          "ಶಾಶ್ವತ ಕೃಷಿ ಈಗ ಸುಲಭ",
+                          "ನಿಮ್ಮ ಡಿಜಿಟಲ್ ಕೃಷಿ ಜೊತೆಯಾಳಿ"
+                        ]
+                      : [
+                          "Empowering farmers, growing futures",
+                          "Smart solutions for agriculture",
+                          "Modern farming, better yield",
+                          "Sustainable farming made easy",
+                          "Your digital farming companion"
+                        ]
+                  }
                   loop={0}
                   cursor={true}
                   cursorStyle="|"
@@ -110,7 +122,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 1 }}
             >
-              <Link to="/sign-up">ಪ್ರಾರಂಭಿಸಿ</Link>
+              <Link to="/sign-up">{t("home.cta")}</Link>
             </motion.div>
           </div>
         </div>
@@ -122,30 +134,30 @@ const Home = () => {
           >
             <div className="container px-4 md:px-6">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-                ಮುಖ್ಯ ವೈಶಿಷ್ಟ್ಯಗಳು
+                {t("home.featuresTitle")}
               </h2>
               <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 justify-center">
                 {[
                   {
-                    title: "ಬೆಳೆ ನಿರ್ವಹಣೆ",
+                    title: t("home.feature1Title"),
                     description:
-                      "ಸರಿಯಾದ ಬೆಳೆ ಮತ್ತು ರಸಗೊಬ್ಬರವನ್ನು ಆಯ್ಕೆ ಮಾಡಿ, ಸಂಬಂಧಿತ ರೋಗಗಳು ಮತ್ತು ಕೀಟನಾಶಕಗಳ ಮಾಹಿತಿ ಪಡೆಯಿರಿ.",
+                      t("home.feature1Desc"),
                     color: "#e9c46a",
                     iconPath:
                       "M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6",
                   },
                   {
-                    title: "ಕೃಷಿ ಸಾರಿಗೆ ನಿರ್ವಹಣೆ",
+                    title: t("home.feature2Title"),
                     description:
-                      "ನೆಲ ಉಳುಮೆಗಾಗಿ ಟ್ರಾಕ್ಟರ್‌ಗಳು ಮತ್ತು ಸರಕು ಸಾಗಣೆಗೆ ವಾಹನಗಳ ಸೌಲಭ್ಯ ಪಡೆಯಿರಿ.",
+                      t("home.feature2Desc"),
                     color: "#dda15e",
                     iconPath:
                       "M8 6L12 2l4 4M12 2v10.3a4 4 0 0 1-1.172 2.872L4 22m16-4l-5-5",
                   },
                   {
-                    title: "ವೈಯಕ್ತಿಕ ಸಾವಯವ ಗೊಬ್ಬರ ಮತ್ತು ಟ್ರಾಕ್ಟರ್ ನಿರ್ವಹಣೆ",
+                    title: t("home.feature3Title"),
                     description:
-                      "ಪೂರೈಕೆದಾರರು ಗೊಬ್ಬರ ಅಥವಾ ಟ್ರಾಕ್ಟರ್‌ಗಳನ್ನು ಒದಗಿಸುತ್ತಾರೆ; ರೈತರು ಅವನ್ನು ಬಳಸಬಹುದು.",
+                      t("home.feature3Desc"),
                     color: "#e76f51",
                     iconPath:
                       "M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5zM18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1",
@@ -192,10 +204,10 @@ const Home = () => {
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                    ಇತ್ತೀಚಿನ ಮಾಹಿತಿಯನ್ನು ಪಡೆಯಿರಿ
+                    {t("home.updatesTitle")}
                   </h2>
                   <p className="text-lg text-[#606c38] dark:text-[#fefae0]">
-                    ಹೊಸ ಅಪ್ಡೇಟ್‌ಗಳನ್ನು ಪಡೆಯಲು ಚಂದಾದಾರರಾಗಿ.
+                    {t("home.updatesDesc")}
                   </p>
                 </div>
 
@@ -205,7 +217,7 @@ const Home = () => {
                 >
                   <input
                     className="w-full py-2 px-4 rounded-l-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#e76f51] dark:bg-[#606c38] dark:text-white"
-                    placeholder="ನಿಮ್ಮ ಇಮೇಲ್ ನಮೂದಿಸಿ"
+                    placeholder={t("home.emailPlaceholder")}
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -215,7 +227,7 @@ const Home = () => {
                     type="submit"
                     className="inline-block px-6 py-2 bg-[#e76f51] text-[#fefae0] rounded-r-md shadow-lg hover:bg-[#dda15e] transition duration-300"
                   >
-                    ಚಂದಾದಾರರಾಗಿ
+                    {t("home.subscribe")}
                   </button>
                 </form>
               </div>
