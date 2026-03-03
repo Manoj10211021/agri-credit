@@ -6,11 +6,13 @@ import CropList from "../components/CropList";
 import FertiList from "../components/FertiList";
 import Disease from "../components/DIseases";
 import Pesticides from "../components/Pesticides";
+import { useLanguage } from "../context/LanguageContext";
 
 const AgriHelp = () => {
   const location = useLocation();
   const [tab, setTab] = useState(null);
   const [sidebar, setSidebar] = useState(false);
+  const { t } = useLanguage();
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const selectedTab = urlParams.get("tab") || null; // Default to 'dash' if no tab is found
@@ -21,10 +23,10 @@ const AgriHelp = () => {
       {!tab && (
         <div className="outer-containerbg-gradient-to-br bg-white dark:bg-black p-10 min-h-screen flex flex-col items-center">
           <h1 className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-[#4caf50] to-[#f54646]">
-            Agricultural Assistance
+            {t("agriHelp.title")}
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {/* Crop List Card */}
+            {/* {t("agriHelp.cropList")} Card */}
             <div className="cont1 bg-green-100 bg-opacity-60 backdrop-blur-md rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center">
               <Link
                 to="/agrihelp?tab=croplist"
@@ -32,16 +34,15 @@ const AgriHelp = () => {
               >
                 <FaSeedling className="h-10 w-10 text-[#3b5a26] mb-3" />
                 <div className="container1 text-[#3b5a26] text-xl font-bold">
-                  Crop List
+                  {t("agriHelp.cropList")}
                 </div>
                 <div className="disc text-green-700 mt-2 text-center">
-                  Select the type of soil and get the list of crops that can be
-                  grown in that selected soil.
+                  {t("agriHelp.cropListDesc")}
                 </div>
               </Link>
             </div>
 
-            {/* Fertilizers Card */}
+            {/* {t("agriHelp.fertilizers")} Card */}
             <div className="cont2 bg-green-100 bg-opacity-60 backdrop-blur-md rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center">
               <Link
                 to="/agrihelp?tab=fertilist"
@@ -49,16 +50,15 @@ const AgriHelp = () => {
               >
                 <GiFertilizerBag className="h-10 w-10 text-[#4c8f2e] mb-3" />
                 <div className="container2 text-[#4c8f2e] text-xl font-bold">
-                  Fertilizers
+                  {t("agriHelp.fertilizers")}
                 </div>
                 <div className="disc text-green-700 mt-2 text-center">
-                  Select the type of soil and the crop to be grown in that soil
-                  and get the suitable fertilizer to be applied.
+                  {t("agriHelp.fertilizersDesc")}
                 </div>
               </Link>
             </div>
 
-            {/* Diseases Card */}
+            {/* {t("agriHelp.diseases")} Card */}
             <div className="cont3 bg-green-100 bg-opacity-60 backdrop-blur-md rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center">
               <Link
                 to="/agrihelp?tab=diseases"
@@ -66,16 +66,15 @@ const AgriHelp = () => {
               >
                 <FaHeartbeat className="h-10 w-10 text-[#d9534f] mb-3" />
                 <div className="container3 text-[#d9534f] text-xl font-bold">
-                  Diseases
+                  {t("agriHelp.diseases")}
                 </div>
                 <div className="disc text-green-700 mt-2 text-center">
-                  Select the crop and find the various diseases associated with
-                  that selected crop.
+                  {t("agriHelp.diseasesDesc")}
                 </div>
               </Link>
             </div>
 
-            {/* Pesticides Card */}
+            {/* {t("agriHelp.pesticides")} Card */}
             <div className="cont4 bg-green-100 bg-opacity-60 backdrop-blur-md rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center">
               <Link
                 to="/agrihelp?tab=pesticides"
@@ -83,11 +82,10 @@ const AgriHelp = () => {
               >
                 <FaSyringe className="h-10 w-10 text-[#007bff] mb-3" />
                 <div className="container4 text-[#007bff] text-xl font-bold">
-                  Pesticides
+                  {t("agriHelp.pesticides")}
                 </div>
                 <div className="disc text-green-700 mt-2 text-center">
-                  Select the crop name and the disease name and get the suitable
-                  pesticide to be applied to control the disease.
+                  {t("agriHelp.pesticidesDesc")}
                 </div>
               </Link>
             </div>
@@ -104,7 +102,7 @@ const AgriHelp = () => {
             className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-green-500 rounded-lg  hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-200 dark:text-green-400 dark:hover:bg-green-700 dark:focus:ring-green-600"
             onClick={() => setSidebar(true)}
           >
-            <span className="sr-only">Open sidebar</span>
+            <span className="sr-only">{t("agriHelp.openSidebar")}</span>
             <svg
               className="w-6 h-6"
               aria-hidden="true"
@@ -149,7 +147,7 @@ const AgriHelp = () => {
                     >
                       <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
                     </svg>
-                    <span className="ms-3">Agri Help</span>
+                    <span className="ms-3">{t("nav.agriHelp")}</span>
                   </Link>
                 </li>
                 <li>
@@ -161,7 +159,7 @@ const AgriHelp = () => {
                   >
                     <FaSeedling className="h-5 w-5 text-[#3b5a26] transition duration-75 dark:text-[#3b5a26] group-hover:text-green-900 dark:group-hover:text-white " />
                     <span className="flex-1 ms-3 whitespace-nowrap">
-                      Crop List
+                      {t("agriHelp.cropList")}
                     </span>
                     {/* <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-green-800 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-300">
                       Pro
@@ -180,7 +178,7 @@ const AgriHelp = () => {
                     <GiSprout className="h-5 w-5 text-[#4c8f2e] transition duration-75 dark:text-[#4c8f2e] group-hover:text-green-900 dark:group-hover:text-white " />
 
                     <span className="flex-1 ms-3 whitespace-nowrap">
-                      Fertilizers
+                      {t("agriHelp.fertilizers")}
                     </span>
                     {/* <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
                       3
@@ -196,7 +194,7 @@ const AgriHelp = () => {
                   >
                     <FaHeartbeat className="h-5 w-5  text-[#d9534f] transition duration-75 dark:text-[#d9534f] group-hover:text-green-900 dark:group-hover:text-white " />
                     <span className="flex-1 ms-3 whitespace-nowrap">
-                      Diseases
+                      {t("agriHelp.diseases")}
                     </span>
                   </Link>
                 </li>
@@ -211,7 +209,7 @@ const AgriHelp = () => {
                   >
                     <FaSyringe className="h-5 w-5  text-[#007bff] transition duration-75 dark:text-[#007bff] group-hover:text-green-900 dark:group-hover:text-white " />
                     <span className="flex-1 ms-3 whitespace-nowrap">
-                      Pesticides
+                      {t("agriHelp.pesticides")}
                     </span>
                   </Link>
                 </li>

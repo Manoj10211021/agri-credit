@@ -1,0 +1,58 @@
+{
+  "brand": {
+    "prefix": "Farmer's",
+    "name": "Assistant"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "agriHelp": "AgriHelp",
+    "agriServices": "AgriServices",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "signOut": "Sign Out",
+    "signIn": "Sign In"
+  },
+  "language": {
+    "label": "Language",
+    "kannada": "ಕನ್ನಡ",
+    "english": "English"
+  },
+  "home": {
+    "welcome": "Welcome to",
+    "heroTitle": "Farmer's Assistant",
+    "tagline": "Empowering Farmers, Growing Futures",
+    "cta": "Get Started",
+    "featuresTitle": "Key Features",
+    "feature1Title": "Crop Management",
+    "feature1Desc": "Select the right crop and fertilizer, and learn related diseases and pesticides.",
+    "feature2Title": "Agricultural Transport Management",
+    "feature2Desc": "Access tractors for ploughing and vehicles for transport.",
+    "feature3Title": "One-to-one Manure and Tractor Management",
+    "feature3Desc": "Providers can list manure/tractors and farmers can directly use them.",
+    "updatesTitle": "Stay Updated",
+    "updatesDesc": "Subscribe to receive latest updates.",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "subscribeSuccess": "Thanks for subscribing!",
+    "subscribeFail": "Failed to send email. Please try again later."
+  },
+  "about": {
+    "title": "About Farmer's Assistant",
+    "intro": "Farmer's Assistant is an all-in-one agri platform that helps farmers make informed decisions, improve productivity, and adopt modern farming practices.",
+    "missionTitle": "Our Mission",
+    "mission": "Our goal is to bridge technology and agriculture by providing timely support to farmers and enabling sustainable growth."
+  },
+  "agriHelp": {
+    "title": "Agricultural Assistance",
+    "cropList": "Crop List",
+    "cropListDesc": "Select soil type and get crops that can be grown on that soil.",
+    "fertilizers": "Fertilizers",
+    "fertilizersDesc": "Select soil and crop to get suitable fertilizers.",
+    "diseases": "Diseases",
+    "diseasesDesc": "Select a crop and find associated diseases.",
+    "pesticides": "Pesticides",
+    "pesticidesDesc": "Select crop and disease to get recommended pesticides.",
+    "openSidebar": "Open sidebar"
+  }
+}
