@@ -40,9 +40,9 @@ export default function Header() {
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold text-green-800 dark:text-white"
       >
         <span className="px-2 py-1 bg-gradient-to-r from-green-500 via-green-600 to-green-700 rounded-lg text-white shadow-md">
-          Farmer's
+          ರೈತರ
         </span>
-        Assistant
+        ಸಹಾಯಕ
       </Link>
 
       <div className="flex gap-5 items-center md:order-3">
@@ -72,10 +72,10 @@ export default function Header() {
               </Dropdown.Header>
 
               <Link to="/dashboard?tab=profile">
-                <Dropdown.Item>Profile</Dropdown.Item>
+                <Dropdown.Item>ಪ್ರೊಫೈಲ್</Dropdown.Item>
               </Link>
               <Dropdown.Divider />
-              <Dropdown.Item onClick={handleSignout}>Sign out</Dropdown.Item>
+              <Dropdown.Item onClick={handleSignout}>ಸೈನ್ ಔಟ್</Dropdown.Item>
             </Dropdown>
           </div>
         ) : (
@@ -85,7 +85,7 @@ export default function Header() {
               outline
               className="shadow-md hover:shadow-lg hover:bg-gradient-to-r from-green-500 to-blue-500 hover:text-white transition-all duration-300 dark:border-gray-600 dark:text-white dark:hover:bg-gradient-to-r dark:hover:from-green-600 dark:hover:to-blue-600"
             >
-              Sign In
+              ಸೈನ್ ಇನ್
             </Button>
           </Link>
         )}
@@ -100,7 +100,7 @@ export default function Header() {
           active={path === "/"}
           className="dark:text-white"
         >
-          Home
+          ಮುಖಪುಟ
         </Navbar.Link>
         <Navbar.Link
           as={Link}
@@ -108,7 +108,7 @@ export default function Header() {
           active={path === "/about"}
           className="dark:text-white"
         >
-          About
+          ಕುರಿತು
         </Navbar.Link>
 
         <Navbar.Link
@@ -117,7 +117,7 @@ export default function Header() {
           active={path === "/agrihelp"}
           className="dark:text-white"
         >
-          AgriHelp
+          ಕೃಷಿ ಸಹಾಯ
         </Navbar.Link>
         <Navbar.Link
           as={Link}
@@ -125,7 +125,7 @@ export default function Header() {
           active={path === "/services"}
           className="dark:text-white"
         >
-          AgriServices
+          ಕೃಷಿ ಸೇವೆಗಳು
         </Navbar.Link>
         <Navbar.Link
           as={Link}
@@ -133,7 +133,7 @@ export default function Header() {
           active={path === "/dashboard"}
           className="dark:text-white"
         >
-          Dashboard
+          ಡ್ಯಾಶ್‌ಬೋರ್ಡ್
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
