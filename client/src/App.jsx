@@ -18,6 +18,7 @@ import Services from "./pages/Services";
 import AdminPage from "./pages/AdminPage";
 import OtpVerification from "./pages/OtpVerification";
 import MyActivities from "./components/MyActivities";
+import AutoTranslateKannada from "./components/AutoTranslateKannada";
 
 // import { GlobalContext } from "./context/GlobalState";
 
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <AutoTranslateKannada />
       <ScrollToTop />
       <Header />
       <Routes>
