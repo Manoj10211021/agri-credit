@@ -1,6 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+const LANGUAGE_OPTIONS = [
+  { value: "kn", label: "ಕನ್ನಡ" },
+  { value: "en", label: "English" },
+];
+
+const STORAGE_KEY = "agricredit-language";
 
 export default function AutoTranslateKannada() {
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    localStorage.getItem(STORAGE_KEY) || "kn"
+  );
+
+  const updateGoogleSelect = (lang) => {
+    const select = document.querySelector(".goog-te-combo");
+    if (!select) return;
+
+    select.value = lang;
+    select.dispatchEvent(new Event("change"));
+  };
+
+  const applyLanguage = (lang) => {
+    document.cookie = `googtrans=/en/${lang};path=/`;
+    document.cookie = `googtrans=/en/${lang};domain=${window.location.hostname};path=/`;
+    updateGoogleSelect(lang);
+  };
+
   useEffect(() => {
     const ensureGoogleTranslateElement = () => {
       if (!document.getElementById("google_translate_element")) {
@@ -11,19 +36,6 @@ export default function AutoTranslateKannada() {
       }
     };
 
-    const triggerKannadaSelection = () => {
-      const interval = window.setInterval(() => {
-        const select = document.querySelector(".goog-te-combo");
-        if (select) {
-          select.value = "kn";
-          select.dispatchEvent(new Event("change"));
-          window.clearInterval(interval);
-        }
-      }, 400);
-
-      window.setTimeout(() => window.clearInterval(interval), 8000);
-    };
-
     const initTranslate = () => {
       ensureGoogleTranslateElement();
       if (window.google?.translate?.TranslateElement) {
@@ -31,12 +43,13 @@ export default function AutoTranslateKannada() {
         new window.google.translate.TranslateElement(
           {
             pageLanguage: "en",
-            includedLanguages: "kn",
+            includedLanguages: "en,kn",
             autoDisplay: false,
           },
           "google_translate_element"
         );
-        triggerKannadaSelection();
+
+        window.setTimeout(() => applyLanguage(selectedLanguage), 400);
       }
     };
 
@@ -58,5 +71,30 @@ export default function AutoTranslateKannada() {
     };
   }, []);
 
-  return null;
+  const handleLanguageChange = (event) => {
+    const lang = event.target.value;
+    setSelectedLanguage(lang);
+    localStorage.setItem(STORAGE_KEY, lang);
+    applyLanguage(lang);
+  };
+
+  return (
+    <div className="fixed bottom-4 right-4 z-[60] bg-white/90 shadow-md border border-green-200 rounded-lg px-3 py-2 backdrop-blur-sm">
+      <label htmlFor="language" className="text-xs text-green-800 font-semibold mr-2">
+        ಭಾಷೆ:
+      </label>
+      <select
+        id="language"
+        value={selectedLanguage}
+        onChange={handleLanguageChange}
+        className="text-sm border border-green-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-green-400"
+      >
+        {LANGUAGE_OPTIONS.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
 }
